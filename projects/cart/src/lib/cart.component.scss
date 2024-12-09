@@ -1,0 +1,42 @@
+.wrapper {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+
+  &__title {
+    margin-bottom: 0;
+  }
+
+  &__table {
+    width: 100%;
+
+    thead {
+    }
+
+    th {
+      text-align: left;
+    }
+
+    tr {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__shipping-estimates {
+    display: flex;
+    background-color: rgb(0, 174, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+
+    opacity: 0.8;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

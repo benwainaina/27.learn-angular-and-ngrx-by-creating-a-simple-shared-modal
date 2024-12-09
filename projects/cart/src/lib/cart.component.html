@@ -1,0 +1,20 @@
+<div class="wrapper">
+  <h1 class="wrapper__title roboto-bold">My Cart</h1>
+  <table class="wrapper__table roboto-regular">
+    <thead>
+      <th>Item</th>
+      <th>Pricing</th>
+    </thead>
+    <tbody>
+      @for(cartItem of cartItems; track cartItem.sku) {
+      <tr>
+        <td>{{ cartItem.name }}</td>
+        <td>KES {{ cartItem.price }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  <div class="wrapper__shipping-estimates roboto-regular">
+    Calculate Shipping Estimates
+  </div>
+</div>
