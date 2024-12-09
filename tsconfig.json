@@ -24,6 +24,9 @@
       "profile": [
         "./dist/profile"
       ],
+      "shared": [
+        "./dist/shared"
+      ],
       "state-manager": [
         "./dist/state-manager"
       ]
