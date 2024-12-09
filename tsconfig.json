@@ -17,6 +17,17 @@
     "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
+    "paths": {
+      "cart": [
+        "./dist/cart"
+      ],
+      "profile": [
+        "./dist/profile"
+      ],
+      "state-manager": [
+        "./dist/state-manager"
+      ]
+    },
     "module": "ES2022",
     "useDefineForClassFields": false,
     "lib": [
