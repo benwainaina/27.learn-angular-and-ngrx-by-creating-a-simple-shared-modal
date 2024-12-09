@@ -1,0 +1,26 @@
+<div class="wrapper">
+  <h1 class="wrapper__salutation roboto-bold">Hello Ben!</h1>
+
+  <form [formGroup]="profileForm" class="wrapper__form" action="">
+    <input
+      type="text"
+      placeholder="Your Full Name"
+      formControlName="fullname"
+    />
+    <input type="text" placeholder="Your Email" formControlName="email" />
+    <input type="text" placeholder="Your Password" formControlName="password" />
+    <input
+      type="text"
+      placeholder="Confirm Password"
+      formControlName="confirmPassword"
+    />
+  </form>
+  <div class="wrapper__actions roboto-regular">
+    <div
+      class="wrapper__actions__update {{ profileForm.valid ? 'active' : '' }}"
+    >
+      Update Profile
+    </div>
+    <div class="wrapper__actions__delete-account">Delete Profile</div>
+  </div>
+</div>

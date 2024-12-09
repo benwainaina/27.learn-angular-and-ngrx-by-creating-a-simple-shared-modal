@@ -1,0 +1,59 @@
+.wrapper {
+  width: 500px;
+  justify-self: center;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 24px;
+
+  &__salutation {
+    margin-bottom: 0;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+
+    input {
+      padding: 12px 6px;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+
+      &:focus-visible {
+        outline: none;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+
+    &__update,
+    &__delete-account {
+      padding: 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      color: white;
+      opacity: 0.8;
+
+      &.active {
+        opacity: 1;
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    &__update {
+      background-color: green;
+    }
+
+    &__delete-account {
+      background-color: rgb(219, 20, 20);
+    }
+  }
+}

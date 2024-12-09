@@ -1,0 +1,40 @@
+.wrapper {
+  width: 100%;
+
+  &__links {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 24px;
+    padding: 12px 0;
+
+    &__link {
+      cursor: pointer;
+      color: black;
+      opacity: 0.5;
+
+      &:hover {
+        opacity: 0.7;
+      }
+
+      &.active {
+        opacity: 1;
+        font-weight: bold;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__support {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    cursor: pointer;
+  }
+}

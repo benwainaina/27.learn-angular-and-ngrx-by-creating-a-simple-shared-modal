@@ -2,8 +2,17 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
-    path: '',
-    loadComponent: import('../app/app.component').then((c) => c.AppComponent),
+    path: 'profile',
+    loadComponent: () =>
+      import('../../projects/profile/src/lib/profile.component').then(
+        (c) => c.ProfileComponent
+      ),
   },
-  { path: '**', redirectTo: '' },
+  {
+    path: 'cart',
+    loadComponent: () =>
+      import('../../projects/cart/src/lib/cart.component').then(
+        (c) => c.CartComponent
+      ),
+  },
 ];
