@@ -29,6 +29,6 @@
   </div>
 </div>
 
-@if(modalData$|async) {
-<lib-shared-modal />
+@let modalData = modalData$|async; @if(modalData) {
+<lib-shared-modal [modalData]="modalData" />
 }

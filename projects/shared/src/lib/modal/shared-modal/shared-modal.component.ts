@@ -1,4 +1,15 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  Input,
+  ViewChild,
+  viewChild,
+  ViewContainerRef,
+} from '@angular/core';
+import { dispatchActionUtility } from '../../utilities/dispatchAction.utility';
+import { ActionSetModalData } from '../../state-manager/actions';
+import { IModalData } from '../../state-manager/interfaces';
+import { IDynamicKey } from '../../interfaces';
+import { MODAL_INJECTED_COMPONENTS_MAPPING } from './modal-component-mapping';
 
 @Component({
   selector: 'lib-shared-modal',
@@ -8,7 +19,32 @@ import { Component } from '@angular/core';
   styleUrl: './shared-modal.component.scss',
 })
 export class SharedModalComponent {
+  @Input({ required: true })
+  public modalData!: IModalData;
+
+  private _outlet = viewChild('outlet', { read: ViewContainerRef });
+
+  @ViewChild('outlet2', { static: true, read: ViewContainerRef })
+  private _outlet2!: ViewContainerRef;
+
+  private _dispatchActionUtility = dispatchActionUtility();
+
+  ngOnInit(): void {
+    this._injectModalComponent();
+  }
+
+  private _injectModalComponent(): void {
+    const outlet = this._outlet();
+    const componentToInject = (
+      MODAL_INJECTED_COMPONENTS_MAPPING as IDynamicKey
+    )[this.modalData.component];
+    if (outlet && componentToInject) {
+      outlet.clear();
+      outlet.createComponent(componentToInject);
+    }
+  }
+
   public dismiss(): void {
-    console.log('dismissing!');
+    this._dispatchActionUtility(ActionSetModalData, undefined);
   }
 }

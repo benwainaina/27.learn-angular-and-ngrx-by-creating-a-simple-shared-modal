@@ -7,10 +7,14 @@
       placeholder="Your Full Name"
       formControlName="fullname"
     />
-    <input type="text" placeholder="Your Email" formControlName="email" />
-    <input type="text" placeholder="Your Password" formControlName="password" />
+    <input type="email" placeholder="Your Email" formControlName="email" />
     <input
-      type="text"
+      type="password"
+      placeholder="Your Password"
+      formControlName="password"
+    />
+    <input
+      type="password"
       placeholder="Confirm Password"
       formControlName="confirmPassword"
     />
@@ -18,9 +22,12 @@
   <div class="wrapper__actions roboto-regular">
     <div
       class="wrapper__actions__update {{ profileForm.valid ? 'active' : '' }}"
+      (click)="onUpdateProfile()"
     >
       Update Profile
     </div>
-    <div class="wrapper__actions__delete-account">Delete Profile</div>
+    <div class="wrapper__actions__delete-account" (click)="onDeleteProfile()">
+      Delete Profile
+    </div>
   </div>
 </div>
