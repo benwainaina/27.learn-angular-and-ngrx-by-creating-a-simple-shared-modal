@@ -1,3 +1,7 @@
+import {
+  IProfileState,
+  profileFeatureKey,
+} from '../../../profile/src/lib/state-manager/interfaces';
 import { ISharedState, sharedFeatureKey } from './state-manager/interfaces';
 
 export interface IDynamicKey {
@@ -6,4 +10,5 @@ export interface IDynamicKey {
 
 export interface IAppState {
   [sharedFeatureKey]: ISharedState;
+  [profileFeatureKey]: IProfileState;
 }

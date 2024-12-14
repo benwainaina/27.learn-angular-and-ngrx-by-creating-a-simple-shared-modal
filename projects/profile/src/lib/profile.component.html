@@ -1,5 +1,7 @@
 <div class="wrapper">
-  <h1 class="wrapper__salutation roboto-bold">Hello Ben!</h1>
+  <h1 class="wrapper__salutation roboto-bold">
+    Hello {{ (userDetails$ | async)?.fullname }}!
+  </h1>
 
   <form [formGroup]="profileForm" class="wrapper__form" action="">
     <input
@@ -21,7 +23,9 @@
   </form>
   <div class="wrapper__actions roboto-regular">
     <div
-      class="wrapper__actions__update {{ profileForm.valid ? 'active' : '' }}"
+      class="wrapper__actions__update {{
+        profileForm.valid ? 'active' : 'invalid'
+      }}"
       (click)="onUpdateProfile()"
     >
       Update Profile

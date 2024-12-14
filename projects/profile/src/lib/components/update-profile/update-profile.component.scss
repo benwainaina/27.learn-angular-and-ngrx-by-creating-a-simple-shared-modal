@@ -1,0 +1,39 @@
+.wrapper {
+  background-color: white;
+  padding: 12px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+  width: 350px;
+
+  &__header {
+    h1 {
+      margin-bottom: 0;
+    }
+  }
+
+  &__content {
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+
+    &__update,
+    &__cancel {
+      padding: 6px 16px;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    &__update {
+      background-color: green;
+    }
+
+    &__cancel {
+      background-color: red;
+    }
+  }
+}

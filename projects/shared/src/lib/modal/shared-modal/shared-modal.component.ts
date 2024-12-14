@@ -24,6 +24,9 @@ export class SharedModalComponent {
 
   private _outlet = viewChild('outlet', { read: ViewContainerRef });
 
+  /**
+   * Below is how things were done before signals
+   */
   @ViewChild('outlet2', { static: true, read: ViewContainerRef })
   private _outlet2!: ViewContainerRef;
 
@@ -40,7 +43,8 @@ export class SharedModalComponent {
     )[this.modalData.component];
     if (outlet && componentToInject) {
       outlet.clear();
-      outlet.createComponent(componentToInject);
+      const componentInstance: any = outlet.createComponent(componentToInject);
+      componentInstance.instance.payload = this.modalData.payload;
     }
   }
 

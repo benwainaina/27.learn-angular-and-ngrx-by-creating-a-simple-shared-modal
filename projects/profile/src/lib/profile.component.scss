@@ -50,6 +50,11 @@
 
     &__update {
       background-color: green;
+
+      &.invalid {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
     }
 
     &__delete-account {
