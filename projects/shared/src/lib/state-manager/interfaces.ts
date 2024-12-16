@@ -1,6 +1,6 @@
 import { IDynamicKey } from '../interfaces';
 
-export type TResponseStatus = 'success' | 'error';
+export type TResponseStatus = 'success' | 'error' | undefined;
 
 export interface IModalData {
   /**

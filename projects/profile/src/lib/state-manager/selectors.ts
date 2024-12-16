@@ -10,3 +10,18 @@ export const selectUserDetails = createSelector(
   profileSlice,
   (slice) => slice.user
 );
+
+/**
+ * select updating profile status
+ */
+export const selectIsUpdatingProfile = createSelector(profileSlice, (slice) => {
+  return slice.isUpdatingProfile;
+});
+
+/**
+ * select response for updating the status
+ */
+export const selectUpdateProfileStatus = createSelector(
+  profileSlice,
+  (slice) => slice.updateProfileStatus
+);
