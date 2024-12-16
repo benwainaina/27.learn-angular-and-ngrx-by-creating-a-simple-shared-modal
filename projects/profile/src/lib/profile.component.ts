@@ -9,7 +9,7 @@ import { dispatchActionUtility } from '../../../shared/src/lib/utilities/dispatc
 import { ActionSetModalData } from '../../../shared/src/lib/state-manager/actions';
 import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
 import { DeleteProfileComponent } from './components/delete-profile/delete-profile.component';
-import { MODAL_INJECTED_COMPONENT_NAMES } from '../../../shared/src/lib/modal/shared-modal/modal-component-mapping';
+import { MODAL_INJECTED_COMPONENT_NAMES } from '../../../shared/src/lib/components/shared-modal/modal-component-mapping';
 import { selectDataUtility } from '../../../shared/src/lib/utilities/selectData.utility';
 import { selectUserDetails } from './state-manager/selectors';
 import { Observable, take } from 'rxjs';
