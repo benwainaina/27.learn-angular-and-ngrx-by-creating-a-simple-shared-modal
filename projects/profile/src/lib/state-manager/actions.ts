@@ -18,3 +18,12 @@ export const ActionSetUpdateProfileStatus = createAction(
   ActionNames.ActionNameSetUpdateProfileStatus,
   props<{ status: TResponseStatus }>()
 );
+
+export const ActionDeleteProfile = createAction(
+  ActionNames.ActionNameDeleteProfile
+);
+
+export const ActionSetDeleteProfileStatus = createAction(
+  ActionNames.ActionNameSetDeleteProfileStatus,
+  props<{ status: TResponseStatus }>()
+);

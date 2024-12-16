@@ -1,1 +1,56 @@
-<p>delete-profile works!</p>
+<div class="wrapper">
+  @let deleteResponse = (deleteProfileStatus$ | async);
+  <ng-container
+    *ngTemplateOutlet="
+      !deleteResponse ? actionTemplate : deleteResponseTemplate
+    "
+  ></ng-container>
+
+  <ng-template #actionTemplate>
+    @let isDeletingProfile = (isDeletingProfile$|async);
+    <ng-container
+      *ngTemplateOutlet="
+        !isDeletingProfile ? deleteProfileFormTemplate : deletingProfileTemplate
+      "
+    ></ng-container>
+
+    <ng-template #deleteProfileFormTemplate>
+      <div class="wrapper__header roboto-bold">
+        <h1>Warning!</h1>
+      </div>
+      <div class="wrapper__content roboto-regular">
+        Your profile will be deleted immediately!
+      </div>
+      <div class="wrapper__footer roboto-bold">
+        <div class="wrapper__footer__delete" (click)="deleteProfile()">
+          Yes, delete it!
+        </div>
+        <div class="wrapper__footer__cancel" (click)="cancel()">
+          No, don't delete.
+        </div>
+      </div>
+    </ng-template>
+    <ng-template #deletingProfileTemplate>
+      <span class="roboto-bold">Deleting profile...</span>
+    </ng-template>
+  </ng-template>
+
+  <ng-template #deleteResponseTemplate>
+    <ng-container
+      *ngTemplateOutlet="
+        deleteResponse === 'success' ? successTemplate : errorTemplate
+      "
+    ></ng-container>
+    <ng-template #successTemplate>
+      <span class="roboto-bold"
+        >Your profile has been deleted successfully!</span
+      >
+      <span class="roboto-bold">Redirecting in...{{ redirectCountdown }}</span>
+    </ng-template>
+    <ng-template #errorTemplate>
+      <span class="roboto-bold"
+        >An error occured trying to delete your profile!</span
+      >
+    </ng-template>
+  </ng-template>
+</div>

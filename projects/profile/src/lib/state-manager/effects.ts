@@ -16,7 +16,7 @@ export class ProfileEffects {
   private _apiService: ApiService = inject(ApiService);
 
   /**
-   * effect for updating profile in the server and receiving a response back
+   * handler for updating profile in the server and receiving a response back
    */
   updateProfile$ = createEffect(() =>
     this._actions$.pipe(
@@ -53,6 +53,26 @@ export class ProfileEffects {
       ofType(ProfileActions.ActionSetNewProfile),
       map(() =>
         ProfileActions.ActionSetUpdateProfileStatus({ status: 'success' })
+      )
+    )
+  );
+
+  /**
+   * handler for deleting profile
+   */
+  deleteProfile$ = createEffect(() =>
+    this._actions$.pipe(
+      ofType(ProfileActions.ActionDeleteProfile),
+      concatLatestFrom(() => this._selectDataUtility(selectUserToken)),
+      mergeMap(([_, userToken]) =>
+        this._apiService.post('delete', { userToken }).pipe(
+          map(() =>
+            ProfileActions.ActionSetDeleteProfileStatus({ status: 'success' })
+          ),
+          catchError(() =>
+            of(ProfileActions.ActionSetDeleteProfileStatus({ status: 'error' }))
+          )
+        )
       )
     )
   );

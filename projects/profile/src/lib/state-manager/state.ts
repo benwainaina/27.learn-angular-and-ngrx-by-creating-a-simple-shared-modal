@@ -6,4 +6,5 @@ export const profileState: IProfileState = {
     fullname: 'Ben Wainaina',
     email: 'benandengineering@youtube.com',
   },
+  isDeletingProfile: false,
 };

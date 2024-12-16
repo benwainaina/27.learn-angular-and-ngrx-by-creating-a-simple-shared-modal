@@ -21,5 +21,17 @@ export const profileReducers = createReducer(
       draft.isUpdatingProfile = false;
       draft.updateProfileStatus = action.status;
     })
+  ),
+  on(Actions.ActionDeleteProfile, (state, action) =>
+    produce(state, (draft) => {
+      draft.isDeletingProfile = true;
+      draft.deleteProfileStatus = undefined;
+    })
+  ),
+  on(Actions.ActionSetDeleteProfileStatus, (state, action) =>
+    produce(state, (draft) => {
+      draft.isDeletingProfile = false;
+      draft.deleteProfileStatus = action.status;
+    })
   )
 );

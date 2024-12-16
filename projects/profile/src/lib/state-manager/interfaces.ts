@@ -26,7 +26,17 @@ export interface IProfileState {
   isUpdatingProfile: boolean;
 
   /**
-   * status for updating the profile
+   * status response for updating the profile
    */
   updateProfileStatus?: TResponseStatus;
+
+  /**
+   * status for whether the profile is being deleted
+   */
+  isDeletingProfile: boolean;
+
+  /**
+   * status response for deleting a profile
+   */
+  deleteProfileStatus?: TResponseStatus;
 }

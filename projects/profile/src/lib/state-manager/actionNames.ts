@@ -3,4 +3,8 @@ export const ActionNameUpdateProfile =
 export const ActionNameSetNewProfile =
   '[Profile effects] sets the new user profile data';
 export const ActionNameSetUpdateProfileStatus =
-  '[Profile effects] status for updating a user profile';
+  '[Profile effects] set status for updating a user profile';
+export const ActionNameDeleteProfile =
+  '[Delete profile component] deletes a user profile';
+export const ActionNameSetDeleteProfileStatus =
+  '[Profile effects] set status for deleting a profile';

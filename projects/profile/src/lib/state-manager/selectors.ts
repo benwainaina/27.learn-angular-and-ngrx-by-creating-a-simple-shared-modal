@@ -25,3 +25,19 @@ export const selectUpdateProfileStatus = createSelector(
   profileSlice,
   (slice) => slice.updateProfileStatus
 );
+
+/**
+ * select deleting profile status
+ */
+export const selectIsDeletingProfile = createSelector(
+  profileSlice,
+  (slice) => slice.isDeletingProfile
+);
+
+/**
+ * select response for deleting the profile
+ */
+export const selectDeleteProfileStatus = createSelector(
+  profileSlice,
+  (slice) => slice.deleteProfileStatus
+);
